@@ -1,0 +1,18 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page</h1>
+    <p>To create page you can use 
+        <a href="https://guides.github.com/features/mastering-markdown/" class="markdown_guide_link">Markdown Guidelines</a>
+    </p>
+    <br>
+    <form method="post" action="{% url 'encyclopedia:new_page' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Edit {{ title }} Page
+{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <p>To edit you can use <a href="https://guides.github.com/features/mastering-markdown/" class="markdown_guide_link">Markdown Guidelines</a></p>
+    <br>
+    <form method="post" action="{% url 'encyclopedia:edit_page' title %}">
+        {% csrf_token %}
+        <textarea name="content" style="display: block; 
+                                    height: 80px; 
+                                    width: 500px;"
+        >
+            {{ content }}
+        </textarea>
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}
